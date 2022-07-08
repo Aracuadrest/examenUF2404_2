@@ -3,7 +3,7 @@ package modelo;
 public class Cuenta {
 
 		private Persona titular;
-		private double saldo;
+		protected double saldo;
 		private double creditoMax;
 		protected static final double comision=5;
 		protected static final double intereses=0.035;
@@ -32,6 +32,8 @@ public class Cuenta {
 			this.saldo = saldo;
 			this.creditoMax=2000;
 		}
+
+
 
 
 		/** 
@@ -99,7 +101,7 @@ public class Cuenta {
 		 * @return boolean con el resultado de la operación true si se ha podido realizar la operación o false en caso 
 		 * contrario
 		 */
-		public boolean retirarACrédito(double cantidad) {
+		public boolean retirarACredito(double cantidad) {
 			if (Math.abs(this.saldo-cantidad) <= this.creditoMax) {
 				this.saldo=this.saldo-cantidad;
 				return true;
