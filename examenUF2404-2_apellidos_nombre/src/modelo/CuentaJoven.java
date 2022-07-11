@@ -13,7 +13,7 @@ public class CuentaJoven extends Cuenta {
 	
 	public CuentaJoven(Persona titular, int bonificación, boolean estudiante) {
 		super(titular);
-		if (getTitular().getEdad()<26) {
+		if (titular.getEdad()<26) {
 		this.bonificación = bonificación;
 		this.estudiante = estudiante;
 		}else {
@@ -52,10 +52,12 @@ public class CuentaJoven extends Cuenta {
 	 * @return double intereses de la cuenta
 	 */
 	public double calculaIntereses() {
-		if (this.estudiante=true){
-			this.bonificación=this.bonificación+0.07;
+		double intereses= super.calculaIntereses();
+		intereses= intereses - intereses*this.bonificación;
+		if (estudiante) {
+			intereses=intereses - intereses*0.07;
 		}
-		return this.getSaldo()*Cuenta.intereses*this.bonificación;
+		return intereses;
 	}
 	
 	// Método transferir
