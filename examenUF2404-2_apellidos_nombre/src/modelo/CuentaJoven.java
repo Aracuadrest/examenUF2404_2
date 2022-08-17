@@ -2,33 +2,33 @@ package modelo;
 
 public class CuentaJoven extends Cuenta {
 	
-	private double bonificación;
+	private double bonificacion;
 	private boolean estudiante;
 	
 	public CuentaJoven(Persona titular) {
 		super(titular);
 	}
 	
-	// Constructor con todos los parámetros
+	// Constructor con todos los parï¿½metros
 	
-	public CuentaJoven(Persona titular, int bonificación, boolean estudiante) {
+	public CuentaJoven(Persona titular, int bonificacion, boolean estudiante) {
 		super(titular);
 		if (titular.getEdad()<26) {
-		this.bonificación = bonificación;
+		this.bonificacion = bonificacion;
 		this.estudiante = estudiante;
 		}else {
-			this.bonificación=0;
+			this.bonificacion=0;
 			this.estudiante=false;
 		}
 	}
 	// Getters y setter:
 
-	public double getBonificación() {
-		return bonificación;
+	public double getBonificacion() {
+		return bonificacion;
 	}
 
-	public void setBonificación(int bonificación) {
-		this.bonificación = bonificación;
+	public void setBonificacion(int bonificacion) {
+		this.bonificacion = bonificacion;
 	}
 
 	public boolean esEstudiante() {
@@ -39,28 +39,28 @@ public class CuentaJoven extends Cuenta {
 		this.estudiante = estudiante;
 	}
 	
-	// Método toString():
+	// Mï¿½todo toString():
 	@Override
 	public String toString() {
-		return "CuentaJoven [getTitular()=" + getTitular() + ", bonificación=" + bonificación + ", estudiante="
+		return "CuentaJoven [getTitular()=" + getTitular() + ", bonificaciï¿½n=" + bonificacion + ", estudiante="
 				+ estudiante + "]";
 	}
 	
 	/**
-	 * Método que calcula los intereses de la cuenta coomo el producto del saldo por la tasa de interés
+	 * Mï¿½todo que calcula los intereses de la cuenta coomo el producto del saldo por la tasa de interï¿½s
 	 * teniendo en cuenta la bonificacion de la cuentaJoven
 	 * @return double intereses de la cuenta
 	 */
 	public double calculaIntereses() {
 		double intereses= super.calculaIntereses();
-		intereses= intereses - intereses*this.bonificación;
+		intereses= intereses - intereses*this.bonificacion;
 		if (estudiante) {
 			intereses=intereses - intereses*0.07;
 		}
 		return intereses;
 	}
 	
-	// Método transferir
+	// Mï¿½todo transferir
 	 
 	public boolean transferir(Cuenta cDestino, double cantidad) {
 		boolean correcto=false;
